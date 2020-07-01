@@ -103,7 +103,8 @@
 	return (FIRELOSS)
 
 /obj/item/stock_parts/cell/on_reagent_change(changetype)
-	rigged = !isnull(reagents.has_reagent(/datum/reagent/toxin/plasma, 5)) //has_reagent returns the reagent datum
+	if (reagents.has_reagent(/datum/reagent/toxin/plasma, 5))
+		rigged = true //has_reagent returns 0 if there is no reagent
 	..()
 
 
